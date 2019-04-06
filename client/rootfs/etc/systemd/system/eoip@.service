@@ -1,0 +1,11 @@
+[Unit]
+Description=EoIP tunnel for %I
+After=syslog.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/eoip /etc/eoip/%i.cfg
+
+[Install]
+WantedBy=multi-user.target
